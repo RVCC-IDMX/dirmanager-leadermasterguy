@@ -43,3 +43,14 @@ function createFile(filepath: string) {
   fs.openSync(filepath, "w");
   console.log("An empty file has been created");
 }
+
+if (options.ls) {
+  const filepath = typeof options.ls === "string" ? options.ls : __dirname;
+  listDirContents(filepath);
+}
+if (options.mkdir) {
+  createDir(path.resolve(__dirname, options.mkdir));
+}
+if (options.touch) {
+  createFile(path.resolve(__dirname, options.touch));
+}
